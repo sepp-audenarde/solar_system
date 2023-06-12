@@ -1,0 +1,78 @@
+@use "../../variables.scss" as *;
+
+.arrowWrap {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	transition: all 1s ease;
+	height: 50px;
+	overflow: hidden;
+	opacity: 0;
+
+	.arrowDown {
+		width: 100px;
+		height: 100px;
+		background-color: rgba(255, 255, 255, 0.12);
+		border-radius: 50%;
+
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+
+		cursor: pointer;
+
+		img {
+			transform: translateY(20px);
+			width: 24px;
+			height: 30px;
+			animation: upDown 2s ease-in-out infinite;
+			filter: invert(1);
+		}
+	}
+}
+
+.arrowWrapUp {
+	position: absolute;
+	bottom: 100px;
+	// left: 500px;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+
+	// height: 50px;
+
+	// overflow: hidden;
+	pointer-events: none;
+
+	.arrowUp {
+		margin-right: 100px;
+		pointer-events: none;
+
+		opacity: 0;
+		transition: all 1s ease;
+
+		transform: translateY(-20px);
+		padding: 5px;
+
+		img {
+			pointer-events: none;
+			cursor: pointer;
+			animation: upDown 2s ease-in-out infinite;
+			transform: translateY(-20px);
+		}
+	}
+}
+
+@keyframes upDown {
+	0%,
+	100% {
+		transform: translateY(10px);
+	}
+
+	50% {
+		transform: translateY(20px);
+	}
+}

@@ -1,0 +1,185 @@
+@use "../../variables.scss" as *;
+
+.section {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	min-height: 100vh;
+
+	font-family: Gilroy;
+	color: white;
+
+	.wrapper {
+		width: 100%;
+		max-width: $website-maxWidth;
+		min-height: 100vh;
+
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+
+		position: relative;
+
+		.left {
+			position: relative;
+			display: flex;
+
+			justify-content: flex-start;
+		}
+
+		.right {
+			display: flex;
+			justify-content: flex-end;
+
+			.rightContainer {
+				position: relative;
+
+				display: flex;
+				flex-direction: column;
+
+				text-align: center;
+				transition: all 1s ease;
+
+				.header {
+					color: orange;
+					font-family: Gilroy;
+					font-weight: 500;
+					margin-bottom: 75px;
+				}
+
+				.vert {
+					position: absolute;
+					left: 50%;
+					transform: translate(-50%, 40px);
+					height: 100%;
+					width: 3px;
+					background-color: rgb(255, 115, 0);
+					box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgba(247, 201, 159, 0.137) 0px 0px 0px 3px;
+
+					transition: all 0.8s ease-out;
+
+					opacity: 0.5;
+					z-index: 1;
+				}
+
+				.date_history {
+					margin-bottom: 50px;
+
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					z-index: 5;
+
+					$c: rgb(177, 88, 16);
+					$c1: rgba($c, 1);
+					$c2: rgba($c, 0.3);
+					$c3: rgba($c, 0.3);
+					$c4: rgba($c, 0);
+					$dx: 10px;
+
+					@mixin sh1 {
+						box-shadow: 0 0 0 0px $c1, 0 0 0 $dx $c2, 0 0 0 2 * $dx $c3;
+					}
+					@mixin sh2 {
+						box-shadow: 0 0 0 $dx $c2, 0 0 0 2 * $dx $c3, 0 0 0 2.75 * $dx $c4;
+					}
+
+					.circle {
+						width: 100px;
+						height: 100px;
+						max-width: 100px;
+						max-height: 100px;
+
+						border-radius: 50%;
+						background-color: black;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+
+						z-index: 5;
+
+						font-family: Gilroy;
+						font-size: 24px;
+						font-weight: 600;
+						letter-spacing: 4px;
+
+						animation: waves 2s infinite linear;
+
+						@include sh1();
+
+						@keyframes waves {
+							from {
+								@include sh1();
+							}
+							to {
+								@include sh2();
+							}
+						}
+					}
+
+					.btn-hover {
+						color: #fff;
+						cursor: pointer;
+
+						background-size: 300% 100%;
+
+						border-radius: 50px;
+
+						-o-transition: all 0.3s ease-in-out;
+						-webkit-transition: all 0.3s ease-in-out;
+						transition: all 0.3s ease-in-out;
+					}
+
+					.btn-hover:hover {
+						background-position: 100% 0;
+
+						-o-transition: all 0.5s ease-in-out;
+						-webkit-transition: all 0.5s ease-in-out;
+						transition: all 0.5s ease-in-out;
+					}
+
+					.active {
+						background-position: 100% 0;
+					}
+
+					.btn-hover.color-4 {
+						background-image: linear-gradient(to right, #000000, #000000, #a75f25, #d1b828);
+					}
+
+					.list {
+						margin-top: 20px;
+						z-index: 5;
+
+						display: flex;
+						flex-direction: column;
+
+						.event {
+							margin-top: 10px;
+							font-weight: 500;
+							font-size: 16px;
+
+							text-align: center;
+							max-width: 350px;
+							color: rgb(231, 231, 231);
+							text-shadow: 0px 0px 7px #000000;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 900px) {
+	.section {
+		.wrapper {
+			.right {
+				display: none;
+			}
+		}
+	}
+}

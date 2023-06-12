@@ -1,0 +1,20 @@
+.test {
+	height: 400px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-family: Gilroy;
+	flex-direction: column;
+
+	user-select: none;
+
+	p {
+		color: rgb(201, 201, 201);
+	}
+	a {
+		color: white;
+		font-size: 20px;
+	}
+}

@@ -1,0 +1,40 @@
+@import url("./fonts/Gilroy/_gilroy.scss");
+@import url("./fonts/Playfair_Display/_playfair_display.scss");
+@import url("./fonts/Oswald/_oswald.scss");
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+}
+
+.App {
+	position: relative;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	background-color: black;
+	overflow: hidden;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+.disableScroll {
+	height: 100%;
+	overflow-y: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+img {
+	user-select: none; /* запрет на выделение картинок */
+}

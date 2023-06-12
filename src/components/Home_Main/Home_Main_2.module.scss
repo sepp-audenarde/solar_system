@@ -1,0 +1,241 @@
+@use "../../variables.scss" as *;
+
+.section {
+	position: absolute;
+
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	transition: all 1s ease;
+	transition-delay: 0.7s;
+	min-height: 100vh;
+
+	color: white;
+	user-select: none;
+
+	opacity: 0;
+
+	.wrapper {
+		position: relative;
+		width: 100%;
+		max-width: $website-maxWidth;
+		min-height: 100vh;
+
+		display: flex;
+
+		justify-content: flex-start;
+		align-items: center;
+
+		.container {
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			width: 600px;
+			height: 600px;
+
+			transition: all 1s ease;
+
+			.title {
+				margin: 0;
+				padding: 0;
+				font-family: Oswald;
+				font-size: 22px;
+				font-weight: 300;
+				text-transform: uppercase;
+
+				letter-spacing: 12px;
+			}
+			.name {
+				margin: 0;
+				padding: 0;
+				margin-top: 5px;
+				line-height: 100px;
+
+				font-family: PlayfairDisplay;
+				font-size: 113px;
+				text-transform: uppercase;
+				letter-spacing: 10px;
+			}
+			.line {
+				margin-top: 150px;
+				width: 110px;
+				height: 10px;
+				border-bottom: 1px solid rgb(167, 167, 167);
+			}
+			.description {
+				margin: 0;
+				padding: 0;
+
+				margin-top: 20px;
+
+				width: 500px;
+				font-family: Oswald;
+				font-weight: 300;
+				font-size: 15px;
+				color: rgb(243, 243, 243);
+				line-height: 30px;
+			}
+
+			.more {
+				margin: 0;
+				padding: 0;
+
+				margin-top: 15px;
+
+				width: 500px;
+				font-family: Oswald;
+				font-weight: 400;
+				font-size: 16px;
+				color: rgb(243, 243, 243);
+				line-height: 30px;
+
+				cursor: pointer;
+			}
+		}
+
+		.stats {
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			width: 600px;
+			height: 600px;
+			padding: 30px 0px;
+
+			transition: all 1s ease;
+
+			.line {
+				margin-bottom: 30px;
+
+				width: 90%;
+				height: 1px;
+				background-color: white;
+				top: 150px;
+			}
+
+			.planet {
+				font-family: Gilroy;
+				text-transform: uppercase;
+				letter-spacing: 10px;
+
+				font-weight: 300;
+				font-size: 44px;
+				margin-bottom: 30px;
+			}
+
+			.columns {
+				display: flex;
+				gap: 40px;
+				height: 100%;
+
+				.left {
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+					.point {
+						color: white;
+						font-family: Gilroy;
+						font-size: 16px;
+					}
+				}
+				.right {
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+					.stat {
+						position: relative;
+						color: white;
+						font-family: Gilroy;
+						font-size: 16px;
+
+						.overline {
+							position: relative;
+							bottom: 8px;
+							font-size: 10px;
+							font-weight: 400;
+						}
+					}
+				}
+			}
+
+			.less {
+				position: absolute;
+				bottom: 80px;
+
+				color: white;
+				font-family: Oswald;
+				font-weight: 400;
+
+				font-size: 16px;
+
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+@mixin miniscreen {
+	.section {
+		.wrapper {
+			.container {
+				.title {
+					font-size: 18px;
+				}
+				.name {
+					font-size: 80px;
+					line-height: 80px;
+				}
+				.line {
+					margin-top: 30px;
+				}
+			}
+			.stats {
+				.planet {
+					letter-spacing: 10px;
+					font-weight: 300;
+					font-size: 30px;
+					margin-bottom: 20px;
+				}
+
+				.columns {
+					display: flex;
+					gap: 40px;
+					height: fit-content;
+				}
+
+				.less {
+					margin-top: 30px;
+					position: static;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	@include miniscreen();
+}
+
+@media (max-width: 450px) {
+	.section {
+		.wrapper {
+			.container {
+				.description {
+					width: 300px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-height: 700px) {
+	@include miniscreen();
+}

@@ -1,0 +1,40 @@
+@use "../../variables.scss" as *;
+
+.section {
+	position: relative;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+
+	height: 100vh;
+	user-select: none;
+
+	background-color: black;
+	pointer-events: none;
+
+	.screen {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+
+		background-color: black;
+
+		opacity: 1;
+		pointer-events: all;
+		transition: all 4s ease 0.75s;
+		pointer-events: none;
+	}
+}
+
+// @media (max-height: 720px) {
+// 	.section {
+// 		// height:
+// 		width: 1000px;
+// 	}
+// }
