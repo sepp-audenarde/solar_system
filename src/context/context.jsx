@@ -7,7 +7,7 @@ import { state } from "./valtio";
 import { baseUrl } from "../App";
 
 const AppProvider = ({ children }) => {
-	const [planet, setPlanet] = useState(5);
+	const [planet, setPlanet] = useState(2);
 	const [date, setDate] = useState(0);
 	const [scrollAvailable, setScrollAvailable] = useState(false);
 

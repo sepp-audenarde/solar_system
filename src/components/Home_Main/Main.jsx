@@ -10,7 +10,7 @@ const Main = () => {
 		const screen = useRef();
 
 		useEffect(() => {
-			if (location.pathname === baseUrl +"/") {
+			if (location.pathname === baseUrl + "/") {
 				setTimeout(() => {
 					screen.current.style.transition = "none";
 					screen.current.style.opacity = 1;

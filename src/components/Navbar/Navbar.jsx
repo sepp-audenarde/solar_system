@@ -32,7 +32,7 @@ const Navbar = () => {
 		setReg,
 	} = useGlobalContext();
 
-	const planets = ["Меркурий", "Венера", "Земля", "Луна", "Марс"];
+	const planets = ["Меркурий", "Венера", "Земля", "Луна", "Марс", "Юпитер", "Сатурн", "Уран", "Нептун"];
 
 	const ref = useRef();
 	const list = useRef();
@@ -79,6 +79,12 @@ const Navbar = () => {
 		if (planet === 2) ref.current.style.left = "172px";
 		if (planet === 3) ref.current.style.left = "238px";
 		if (planet === 4) ref.current.style.left = "304px";
+
+		if (planet === 5) ref.current.style.left = "381px";
+		if (planet === 6) ref.current.style.left = "464px";
+
+		if (planet === 7) ref.current.style.left = "536px";
+		if (planet === 8) ref.current.style.left = "607px";
 	}, [planet]);
 
 	const wrapper = useRef();
