@@ -40,7 +40,7 @@ export function Jupiter(props) {
 	}
 
 	return (
-		<group {...props} rotation={[0, 0, -0.1]}>
+		<group {...props} rotation={[0, 0, 0]}>
 			<mesh ref={jupiterRef} position={[0, 0, 0]} scale="1" onClick={() => click()}>
 				<sphereGeometry args={[1, 48, 48]} />
 				{/* <meshPhongMaterial /> */}

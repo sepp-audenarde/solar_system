@@ -9,7 +9,6 @@ import { baseUrl } from "../App";
 const AppProvider = ({ children }) => {
 	const [planet, setPlanet] = useState(2);
 	const [date, setDate] = useState(0);
-	const [scrollAvailable, setScrollAvailable] = useState(false);
 
 	const [firstScreen, setFirstScreen] = useState(true);
 	const [secondScreen, setSecondScreen] = useState(false);
@@ -55,15 +54,10 @@ const AppProvider = ({ children }) => {
 	};
 
 	const updateUser = async (payload) => {
-		console.log(payload);
-		console.log(user);
-
 		try {
 			const res = await axios.put(`${BASE_URL}/users/${user.id}`, payload);
 			setUser(res.data);
 			setLogError(false);
-
-			console.log(res);
 
 			return res.data;
 		} catch (err) {

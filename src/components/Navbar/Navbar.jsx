@@ -42,6 +42,7 @@ const Navbar = () => {
 
 	function click(i) {
 		if (tempBlock) return;
+		if (transit) return;
 
 		setTempBlock(true);
 		setTimeout(() => {
@@ -74,17 +75,16 @@ const Navbar = () => {
 	}
 
 	useEffect(() => {
-		if (planet === 0) ref.current.style.left = "4px";
-		if (planet === 1) ref.current.style.left = "95px";
-		if (planet === 2) ref.current.style.left = "172px";
-		if (planet === 3) ref.current.style.left = "238px";
-		if (planet === 4) ref.current.style.left = "304px";
+		if (planet === 0) ref.current.style.left = "296px";
+		if (planet === 1) ref.current.style.left = "204px";
+		if (planet === 2) ref.current.style.left = "127px";
+		if (planet === 3) ref.current.style.left = "61px";
+		if (planet === 4) ref.current.style.left = "-5px";
 
-		if (planet === 5) ref.current.style.left = "381px";
-		if (planet === 6) ref.current.style.left = "464px";
-
-		if (planet === 7) ref.current.style.left = "536px";
-		if (planet === 8) ref.current.style.left = "607px";
+		if (planet === 5) ref.current.style.left = "-81px";
+		if (planet === 6) ref.current.style.left = "-165px";
+		if (planet === 7) ref.current.style.left = "-237px";
+		if (planet === 8) ref.current.style.left = "-308px";
 	}, [planet]);
 
 	const wrapper = useRef();
@@ -133,10 +133,16 @@ const Navbar = () => {
 						</Link>
 						<div className={styles.links} ref={reg}>
 							{location.pathname !== baseUrl + "/profile" && !user ? (
-								<div className={styles.login}>
+								<div
+									className={styles.login}
+									style={{
+										pointerEvents: transit ? "none" : "auto",
+									}}>
 									<Link
 										to={baseUrl + "/profile"}
 										onClick={() => {
+											console.log("link");
+
 											useUnblock();
 											useTop();
 											setReg(false);
@@ -148,14 +154,34 @@ const Navbar = () => {
 						</div>
 					</div>
 				</div>
-				<div className={styles.list} ref={list}>
-					{planets.map((e, i) => (
-						<div className={styles.planet} key={i} children={e} onClick={() => click(i)} />
-					))}
-					<div className={styles.line} ref={ref}>
-						<div className={styles.lineWhite}>{planets[planet]}</div>
+
+				<div className={styles.list1} ref={list}>
+					<div className={styles.listPlanets} ref={ref}>
+						{planets.map((e, i) => (
+							<div
+								className={styles.planet1}
+								key={i}
+								children={e}
+								onClick={() => click(i)}
+								style={
+									i + 3 <= planet || i - 3 >= planet
+										? {
+												opacity: 0,
+												pointerEvents: "none",
+										  }
+										: {
+												opacity: 1,
+												pointerEvents: "auto",
+										  }
+								}
+							/>
+						))}
+					</div>
+					<div className={styles.line1}>
+						<div className={styles.lineWhite1}>{planets[planet]}</div>
 					</div>
 				</div>
+
 				<div className={styles.menu}>
 					<div className={styles.elem}>
 						<Link

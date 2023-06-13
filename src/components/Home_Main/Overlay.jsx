@@ -249,7 +249,6 @@ const Home_Main_2 = ({ style }) => {
 
 		return () => {
 			clearTimeout(timer);
-			// console.log(baseUrl + "/");
 
 			if (location.pathname !== baseUrl + "/") {
 				information.current.style.opacity = 0;
@@ -396,6 +395,8 @@ export const Overlay = () => {
 	const location = useLocation();
 
 	useEffect(() => {
+		// if (transit) return;
+
 		state.firstScreen = true;
 		state.secondScreen = false;
 		setFirstScreen(true);
@@ -403,6 +404,8 @@ export const Overlay = () => {
 		setFree(false);
 
 		return () => {
+			// if (transit) return;
+
 			state.firstScreen = true;
 			state.secondScreen = false;
 			setFirstScreen(true);
@@ -443,8 +446,12 @@ export const Overlay = () => {
 		}
 
 		if (!free && window.pageYOffset === 0 && val === 100) {
+			setTransit(true);
 			setTimeout(() => {
+				if (transit) return;
+
 				document.body.classList.remove("disableScroll");
+				setTransit(false);
 				setFree(true);
 			}, 1000);
 
@@ -504,12 +511,16 @@ export const Overlay = () => {
 	}, [firstScreen, secondScreen, free, location, scrollEvent]);
 
 	function down() {
+		if (transit) return;
+
 		setFirstScreen(false);
 
 		setSecondScreen(true);
 	}
 
 	function up() {
+		if (transit) return;
+
 		setFirstScreen(true);
 		setSecondScreen(false);
 		setFree(false);

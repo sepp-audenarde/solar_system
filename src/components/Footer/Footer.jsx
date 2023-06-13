@@ -57,10 +57,18 @@ const Footer = () => {
 					</div>
 					<div className={styles.right}>
 						<div className={styles.wrap}>
-							<div className={styles.link}>Behance</div>
-							<div className={styles.link}>Github</div>
+							<div className={styles.link}>
+								<a target="_blank" href="https://www.behance.net/krdimitry">
+									Behance
+								</a>
+							</div>
+							<div className={styles.link}>
+								<a target="_blank" href="https://github.com/sepp-audenarde">
+									Github
+								</a>
+							</div>
 						</div>
-						<div className={styles.about}>О проекте</div>
+						{/* <div className={styles.about}>О проекте</div> */}
 					</div>
 				</div>
 			</div>
