@@ -95,7 +95,7 @@ const Home_Main = ({ down, style }) => {
 					clearInterval(interval);
 					setTransit(false);
 				}
-			}, 1000);
+			}, 800);
 
 			state.activePlanetIdx += payload;
 
@@ -176,6 +176,7 @@ const Home_Main_2 = ({ style }) => {
 	const current = planets[planet];
 
 	useEffect(() => {
+
 		let timer;
 		if (secondScreen) {
 			stats.current.style.opacity = 0;
@@ -242,6 +243,8 @@ const Home_Main_2 = ({ style }) => {
 
 		let timer = setTimeout(() => {
 			if (secondScreen) {
+				console.log("first");
+
 				information.current.style.opacity = 1;
 				information.current.style.pointerEvents = "auto";
 			}
