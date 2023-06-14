@@ -95,7 +95,7 @@ const Home_Main = ({ down, style }) => {
 					clearInterval(interval);
 					setTransit(false);
 				}
-			}, 800);
+			}, 1000);
 
 			state.activePlanetIdx += payload;
 

@@ -43,11 +43,19 @@ const Navbar = () => {
 	function click(i) {
 		if (tempBlock) return;
 		if (transit) return;
+		if (planet === i) return;
 
 		setTempBlock(true);
-		setTimeout(() => {
-			setTempBlock(false);
-		}, 1000);
+
+		if (i + 2 === planet || i - 2 === planet) {
+			setTimeout(() => {
+				setTempBlock(false);
+			}, 2500);
+		} else {
+			setTimeout(() => {
+				setTempBlock(false);
+			}, 1000);
+		}
 
 		if (firstScreen) {
 			setFirstScreen(true);
@@ -74,6 +82,10 @@ const Navbar = () => {
 		}
 	}
 
+	// useEffect(() => {
+	// 	console.log({ transit });
+	// }, [transit]);
+
 	useEffect(() => {
 		if (planet === 0) ref.current.style.left = "296px";
 		if (planet === 1) ref.current.style.left = "204px";
@@ -92,9 +104,11 @@ const Navbar = () => {
 		if (transit) {
 			wrapper.current.style.pointerEvents = "none";
 		} else {
-			setTimeout(() => {
-				wrapper.current.style.pointerEvents = "auto";
-			}, 800);
+			// setTimeout(() => {
+			// console.log("me");
+
+			if (!transit) wrapper.current.style.pointerEvents = "auto";
+			// }, 800);
 		}
 	}, [transit]);
 
