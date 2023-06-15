@@ -41,7 +41,7 @@ function App() {
 				<Route element={<ISS />} path={baseUrl + "/iss"} />
 				<Route element={<Saturn />} path={baseUrl + "/saturn"} />
 				<Route element={<Profile />} path={baseUrl + "/profile"} />
-				<Route element={<Error />} path={baseUrl + "*"} />
+				<Route element={<Error />} path={baseUrl + "/*"} />
 			</Routes>
 
 			<Footer />
